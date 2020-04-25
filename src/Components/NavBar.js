@@ -1,10 +1,11 @@
 import React from 'react';
-// import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom'; 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown'
-// import { Navbar, Nav, NavDropdown, Form, Button } from 'react-bootstrap'; 
+import NavDropdown from 'react-bootstrap/NavDropdown'; 
+import { Form, FormControl } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
    return (
@@ -14,16 +15,19 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
-                  <Nav.Link href="/disorders">Browse All Disorders</Nav.Link>
-                  <Nav.Link href="/posts">Posts</Nav.Link>
-                  <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                  <NavDropdown title="Options" id="collasible-nav-dropdown">
+                     <NavDropdown.Item href="/disorders">Mental Health Disorders</NavDropdown.Item>
+                     <NavDropdown.Item href="/posts">View All Posts</NavDropdown.Item>
                      <NavDropdown.Divider />
-                     <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                     <NavDropdown.Item href="/home"><strong>Home</strong></NavDropdown.Item>
                   </NavDropdown>
                </Nav>
+               <Form inline>
+                  <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                  <Button variant="outline-primary">Search</Button>
+               </Form>
+               <Link to="/login"><Button variant="light"><div>Login</div></Button></Link>
+               <Link to="/signup"><Button variant="light"><div>Sign Up</div></Button></Link>
             </Navbar.Collapse>
          </Navbar>
       </Container>
