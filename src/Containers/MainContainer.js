@@ -6,8 +6,8 @@ import PostsContainer from './PostsContainer';
 const MainContainer = () => {
    return (
       <div>
-         <DisordersContainer />
-         <PostsContainer />
+         {/* <DisordersContainer /> */}
+         {/* <PostsContainer /> */}
       </div>
    )
 }
