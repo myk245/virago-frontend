@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.disorders)
+    // console.log(this.state.disorders)
     return (
         <div className="App">
         <NavBar />
@@ -35,7 +35,7 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
-          <Route path='/disorders' render={routerProps => <DisordersContainer {...routerProps} disorders={this.state.disorders} />} />
+            <Route path='/disorders' render={routerProps => <DisordersContainer {...routerProps} disorders={this.state.disorders} />} />
             <Route path='/posts' component={PostsContainer} />
           </Switch>
         </div>
