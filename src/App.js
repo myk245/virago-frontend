@@ -3,7 +3,6 @@ import './App.css';
 import './Styles.css';
 import { Route, Switch } from 'react-router-dom';
 import Home from './Components/Home';
-import MainContainer from './Containers/MainContainer';
 // import Auth from './Containers/Auth';
 import SignUp from './Components/SignUp';
 import LogIn from './Components/LogIn';
@@ -32,7 +31,6 @@ class App extends React.Component {
     return (
         <div className="App">
         <NavBar />
-        <MainContainer />
         <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/signup' component={SignUp} />
