@@ -10,12 +10,16 @@ import Button from 'react-bootstrap/Button';
 const NavBar = () => {
    return (
       <Container>
-         <Navbar expand="lg" variant="light" bg="light" sticky="top">
+         <Navbar expand="lg" variant="light" bg="light">
             <Navbar.Brand href="/">Virago</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
                   <NavDropdown title="Options" id="collasible-nav-dropdown">
+                     {/* ideally would use links to render these pages without a reload, 
+                     but cleaner to use NavDropdown.Item here */}
+                     {/* <Link to="/disorders">Mental Health Disorders</Link>
+                     <Link to="/posts">Virago Community Posts</Link> */}
                      <NavDropdown.Item href="/disorders">Mental Health Disorders</NavDropdown.Item>
                      <NavDropdown.Item href="/posts">View All Posts</NavDropdown.Item>
                      <NavDropdown.Divider />

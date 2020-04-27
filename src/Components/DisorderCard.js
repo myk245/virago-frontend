@@ -1,6 +1,7 @@
 import React from 'react'; 
 import Card from 'react-bootstrap/Card'; 
 import Button from 'react-bootstrap/Button'; 
+import { useHistory } from 'react-router-dom'; 
 
 const DisorderCard = (props) => {
    return (
@@ -11,7 +12,7 @@ const DisorderCard = (props) => {
                <Card.Text>
                   {props.disorder.details}
                </Card.Text>
-               <Button variant="info">Details</Button>
+            <Button variant="info" onClick={() => props.handleSelect(props.disorder.id)}>Details</Button>
             </Card.Body>
          </Card>
    )

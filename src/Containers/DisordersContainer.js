@@ -1,11 +1,22 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom'; 
 import DisorderCard from '../Components/DisorderCard'; 
+import DisorderPage from '../Components/DisorderPage';
 
 class DisordersContainer extends React.Component {   
+   state = {
+      selectedDisorder: null
+   }
+
+   selectDisorder = (id) => {
+      this.setState({
+         selectedDisorder: id
+      })
+   }
 
    render() {
-      console.log(this.props.disorders)
-
+      // console.log(this.state.selectedDisorder)
+      let selectedDisorder = this.props.disorders.find(disorder => disorder.id === this.state.selectedDisorder)
       return (
          <div id="disorders">
             <div id="general-disorder-info">
@@ -18,10 +29,12 @@ class DisordersContainer extends React.Component {
             </div>
             <br>
             </br>
-            <div id ="disorder-list">
-               {this.props.disorders.map(disorder =>
-                  <DisorderCard key={disorder.id} disorder={disorder} />
-               )}
+            <div id="disorder-list">
+               {this.state.selectedDisorder
+                  ? <DisorderPage {...selectedDisorder} />
+                  : this.props.disorders.map(disorder =>
+                     <DisorderCard key={disorder.id} disorder={disorder} handleSelect={this.selectDisorder} />)
+               }
             </div>
          </div>
       )
