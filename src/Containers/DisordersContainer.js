@@ -5,6 +5,7 @@ class DisordersContainer extends React.Component {
 
    render() {
       console.log(this.props.disorders)
+
       return (
          <div id="disorders">
             <div id="general-disorder-info">
@@ -15,6 +16,8 @@ class DisordersContainer extends React.Component {
                Association, mental illness is common, affecting nearly 19% of U.S. adults in any given year.</p>
                <p>Below is a list of common mental health disorders. Click on a specific disorder for more information.</p>
             </div>
+            <br>
+            </br>
             <div id ="disorder-list">
                {this.props.disorders.map(disorder =>
                   <DisorderCard key={disorder.id} disorder={disorder} />

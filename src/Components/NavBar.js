@@ -11,7 +11,7 @@ const NavBar = () => {
    return (
       <Container>
          <Navbar expand="lg" variant="light" bg="light" sticky="top">
-            <Navbar.Brand href="/home">Virago</Navbar.Brand>
+            <Navbar.Brand href="/">Virago</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
@@ -19,7 +19,7 @@ const NavBar = () => {
                      <NavDropdown.Item href="/disorders">Mental Health Disorders</NavDropdown.Item>
                      <NavDropdown.Item href="/posts">View All Posts</NavDropdown.Item>
                      <NavDropdown.Divider />
-                     <NavDropdown.Item href="/home"><strong>Home</strong></NavDropdown.Item>
+                     <NavDropdown.Item href="/"><strong>Home</strong></NavDropdown.Item>
                   </NavDropdown>
                </Nav>
                <Form inline>
