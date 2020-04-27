@@ -22,18 +22,18 @@ class DisorderPage extends React.Component {
             <h1>{this.state.disorder.name}</h1>
             <p>{this.state.disorder.details}</p>
             <ul><strong>Common symptoms may include:</strong></ul>
-            {this.state.disorder.symptoms.map(symptom => <li><strong>{symptom.name}:</strong> {symptom.description}</li>)}
+            {this.state.disorder.symptoms.map(symptom => <li key={symptom.id}><strong>{symptom.name}:</strong> {symptom.description}</li>)}
             <br></br>
             <p><strong>Effective treatment plans are unique to an individual and should always be
             developed in collaboration with a mental health specialist. Below is a list of
             treatments commonly used to treat this disorder:</strong></p>
-            {this.state.disorder.treatments.map(treatment => (<li><strong>{treatment.name}:</strong> {treatment.description}</li>))}
+            {this.state.disorder.treatments.map(treatment => (<li key={treatment.id}><strong>{treatment.name}:</strong> {treatment.description}</li>))}
          </div>
       ) 
    }
 
    render() {
-      console.log(this.state.disorder)
+      // console.log(this.state.disorder)
       return (
          <div>
             {this.state.disorder && this.renderDisorderDetails(this.state.disorder)}
