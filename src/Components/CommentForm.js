@@ -25,7 +25,7 @@ class CommentForm extends React.Component {
             'Content-Type': 'application/json',
             Accept: 'application/json'
          },
-         // hard-coding the user id for now until we figure out how to log in
+         // randomly generating user id for now until we figure out how to log in
          body: JSON.stringify({
             ...this.state,
             user_id: Math.floor(Math.random() * 5) + 1,
@@ -49,7 +49,7 @@ class CommentForm extends React.Component {
                </Form.Group> */}
                <Form.Group>
                   <Form.Label>Comment: </Form.Label>
-                  <Form.Control type="text" onChange={this.handleChange} name="content" placeholder="Your comment here"/>
+                  <Form.Control type="text" onChange={this.handleChange} name="content" value={this.state.content} placeholder="Your comment here"/>
                </Form.Group>
                <Button variant="outline-primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
             </Form>
