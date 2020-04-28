@@ -1,9 +1,15 @@
 import React from 'react'; 
 import { API_BASE } from '../constants';
+import Button from 'react-bootstrap/Button';
+import CommentForm from '../Components/CommentForm'
+import CommentCard from './CommentCard';
 
 class PostCard extends React.Component {
    state = {
-      likes: this.props.post.likes
+      likes: this.props.post.likes, 
+      displayCommentForm: false, 
+      comments: this.props.post.comments, 
+      displayComments: false
    }
 
    increaseLikes = () => {
@@ -25,6 +31,24 @@ class PostCard extends React.Component {
          }))
    }
 
+   toggleDisplayCommentForm = () => {
+      this.setState({
+         displayCommentForm: !this.state.displayCommentForm
+      })
+   }
+
+   toggleDisplayComments = () => {
+      this.setState({
+         displayComments: !this.state.displayComments
+      })
+   }
+
+   handleNewComment = (newComment) => {
+      this.setState({
+         comments: [...this.state.comments, newComment]
+      })
+   }
+
    render() {
       return (
          <div id="post-card-container">
@@ -33,8 +57,20 @@ class PostCard extends React.Component {
                   <img id="post-img" src={this.props.post.image_url} alt={this.props.post.title} />
                   <p>{this.props.post.content}</p>
                   <p>Posted by: {this.props.post.user.username}</p>
-                  <button onClick={this.increaseLikes}>{this.state.likes} 💛</button>
+            </div>
+            {this.state.displayComments && (
+               <div id="comment-list">
+                  {this.state.comments && this.state.comments.map(comment => <CommentCard key={comment.id} comment={comment} /> )}
                </div>
+            )}
+            <div id="button-container">
+               <Button type="button" size="sm" variant="outline-info" onClick={this.increaseLikes}>{this.state.likes} <span role="img" aria-label="yellow-heart">💛</span></Button>{' '}
+               <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayCommentForm}>{this.state.displayCommentForm ? "Hide Comment Form" : "Add a Comment"}</Button>{' '}
+               <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayComments}>{this.state.displayComments ? "Hide Comments" : "View Comments"}</Button>
+            </div>
+            <div id="comment-form">
+               {this.state.displayCommentForm && <CommentForm postId={this.props.post.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
+            </div>
          </div>
       )
    }

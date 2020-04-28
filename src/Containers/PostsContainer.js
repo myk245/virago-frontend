@@ -1,6 +1,7 @@
 import React from 'react';
 import { API_BASE } from '../constants';
 import PostCard from '../Components/PostCard';
+import PostForm from '../Components/PostForm'; 
 
 class PostsContainer extends React.Component {
    state = {
@@ -16,7 +17,6 @@ class PostsContainer extends React.Component {
    }
 
    render() {
-      console.log(this.state.posts)
       return (
          <div>
             <h1>Virago Community Posts</h1>

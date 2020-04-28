@@ -5,7 +5,6 @@ import DisorderPage from '../Components/DisorderPage';
 
 class DisordersContainer extends React.Component {   
    state = {
-      selectedDisorder: null, 
       hideHeader: false 
    }
 
@@ -26,7 +25,7 @@ class DisordersContainer extends React.Component {
 
    render() {
       // console.log(this.state.hideHeader)
-      let selectedDisorder = this.props.disorders.find(disorder => disorder.id === this.state.selectedDisorder)
+      // let selectedDisorder = this.props.disorders.find(disorder => disorder.id === this.state.selectedDisorder)
       return (
          <div id="disorders">
             {/* if hideHeader === true, don't render general disorder info
