@@ -20,21 +20,23 @@ class CommentForm extends React.Component {
       event.preventDefault()
 
       fetch(`${API_BASE}/comments`, {
-         method: 'POST', 
+         method: 'POST',
          headers: {
             'Content-Type': 'application/json',
             Accept: 'application/json'
-         }, 
+         },
          // hard-coding the user id for now until we figure out how to log in
          body: JSON.stringify({
             ...this.state,
-            user_id: 1,
-            post_id: this.props.postId, 
-         }, ['name'])
+            user_id: Math.floor(Math.random() * 5) + 1,
+            post_id: this.props.postId
+         })
       })
-      .then(resp => resp.json())
-      .then(newComment => this.props.handleNewComment(newComment))
-      this.setState(initialState)
+            .then(resp => resp.json())
+            .then(newComment => {
+               this.props.handleNewComment(newComment)
+            })
+         .then(this.setState(initialState))
    }
 
    render() {
@@ -47,9 +49,9 @@ class CommentForm extends React.Component {
                </Form.Group> */}
                <Form.Group>
                   <Form.Label>Comment: </Form.Label>
-                  <Form.Control type="text" name="content" placeholder="Leave a Comment" />
+                  <Form.Control type="text" onChange={this.handleChange} name="content" placeholder="Your comment here"/>
                </Form.Group>
-               <Button variant="outline-primary" type="submit" onClick={this.props.handleNewComment}>Submit</Button>
+               <Button variant="outline-primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
             </Form>
          </div>
       )
