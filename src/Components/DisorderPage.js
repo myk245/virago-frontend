@@ -9,7 +9,7 @@ class DisorderPage extends React.Component {
    componentDidMount() {
       // console.log(this.props) //=> routerProps
       let id = this.props.match.params.id
-      fetch(API_BASE + `/disorders/${id}`)
+      fetch(`${API_BASE}/disorders/${id}`)
          .then(resp => resp.json())
          .then(data => this.setState({
             disorder: data 
