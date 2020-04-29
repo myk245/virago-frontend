@@ -6,7 +6,7 @@ import {API_BASE} from '../constants'
 const initialState = {
    title: "",
    content: "",
-   img_url: "",
+   image_url: "",
    likes: 0
 }
 
@@ -56,7 +56,7 @@ class PostForm extends React.Component {
                </Form.Group>
                <Form.Group>
                   <Form.Label>Image: </Form.Label>
-                  <Form.Control type="text" name="img_url" value={this.state.img_url} placeholder="Image URL here" onChange={this.handleChange} />
+                  <Form.Control type="text" name="image_url" value={this.state.image_url} placeholder="Image URL here" onChange={this.handleChange} />
                </Form.Group>
                <Button variant="outline-info" size="sm" type="submit" onClick={this.handleSubmit}>Submit Post</Button>
             </Form>
