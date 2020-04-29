@@ -26,3 +26,8 @@
    float: none; 
    margin-bottom: 25px; 
 }
+
+#login {
+    height:auto; 
+    margin:0 auto; 
+}
