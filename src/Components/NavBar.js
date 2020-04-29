@@ -30,7 +30,7 @@ const NavBar = () => {
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                   <Button variant="outline-primary">Search</Button>
                </Form> */}
-               <Link to="/login"><Button variant="light"><div>Login</div></Button></Link>
+               <Link to="/login"><Button variant="light"><div>Log In</div></Button></Link>
                <Link to="/signup"><Button variant="light"><div>Sign Up</div></Button></Link>
             </Navbar.Collapse>
          </Navbar>
