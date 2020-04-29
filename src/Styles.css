@@ -1,3 +1,10 @@
+#jumbotron {
+   background-color: rgba(244, 245, 139, 0.639);
+   border: 1px;
+   border-style: solid;
+   border-color: cornflowerblue; 
+}
+
 #disorder-card {
    padding: 5px 5px 5px 5px; 
    display: block;
