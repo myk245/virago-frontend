@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown'; 
-import { Form, FormControl } from 'react-bootstrap';
+// import { Form, FormControl } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
 const NavBar = () => {
@@ -26,10 +26,10 @@ const NavBar = () => {
                      <NavDropdown.Item href="/"><strong>Home</strong></NavDropdown.Item>
                   </NavDropdown>
                </Nav>
-               <Form inline>
+               {/* <Form inline>
                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                   <Button variant="outline-primary">Search</Button>
-               </Form>
+               </Form> */}
                <Link to="/login"><Button variant="light"><div>Login</div></Button></Link>
                <Link to="/signup"><Button variant="light"><div>Sign Up</div></Button></Link>
             </Navbar.Collapse>
