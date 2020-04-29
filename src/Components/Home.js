@@ -18,6 +18,15 @@ class Home extends React.Component {
                <Button variant="primary" href="/disorders">Start Exploring Virago</Button>
             </p>
             </Jumbotron>
+            <Card border="info" id="general-info-card">
+               <Card.Body><strong>Let's talk about mental health.</strong>
+                  <br></br>
+                  <br></br>
+                  <p class="text-muted">According to the National Alliance on Mental Illness, 1 in 5 adults in the U.S. experience mental illness in any given year. 46% of Americans will meet the criteria for a diagnosable mental health condition sometime in their life, and half of those people will develop conditions by the age of 14.</p>
+                  <p class="text-muted">Mental health is something that affects all of us, all over the world in some way or another. Let's show up for each other, support each other, and make it easier for ach other to seek the help we need.</p>
+               </Card.Body>
+            </Card>
+            <br></br>
             <CardGroup>
                <Card>
                   <Card.Img variant="top" class="card-img-top" src="https://www.slj.com/binaries/content/gallery/Jlibrary/2019/10/1910-greatbks-ya-mental-health-f.jpg" />
