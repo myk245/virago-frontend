@@ -9,7 +9,8 @@ class PostCard extends React.Component {
       likes: this.props.post.likes, 
       displayCommentForm: false, 
       comments: this.props.post.comments, 
-      displayComments: false
+      displayComments: false, 
+      tags: this.props.post.disorders
    }
 
    increaseLikes = () => {
@@ -50,6 +51,7 @@ class PostCard extends React.Component {
    }
 
    render() {
+      console.log(this.state.tags)
       return (
          <div id="post-card-container">
                <div id="post-card" key={this.props.post.id}>
@@ -57,6 +59,7 @@ class PostCard extends React.Component {
                   <img id="post-img" src={this.props.post.image_url} alt={this.props.post.title} />
                   <p>{this.props.post.content}</p>
                   <p>Posted by: {this.props.post.user.username}</p>
+               <p>Tags: {this.state.tags.map(tag => <li>#{tag.name}</li> )} </p>
             </div>
             {this.state.displayComments && (
                <div id="comment-list">
