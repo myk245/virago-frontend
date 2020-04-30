@@ -59,7 +59,9 @@ class PostCard extends React.Component {
                <Card.Header as="h5">{this.props.post.title}</Card.Header>
             <Card.Body>
                <Card.Img id="post-img" src={this.props.post.image_url} alt={this.props.post.title} />
-               <Card.Text>
+                  <br></br>
+                  <br></br>
+                  <Card.Text>
                      {this.props.post.content}
                   </Card.Text>
                   <Card.Text>Tags: {this.state.tags.map(tag => <li>#{tag.name}</li>)} </Card.Text>
