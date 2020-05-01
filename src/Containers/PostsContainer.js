@@ -2,12 +2,14 @@ import React from 'react';
 import { API_BASE } from '../constants';
 import PostCard from '../Components/PostCard';
 import PostForm from '../Components/PostForm'; 
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import FilterBar from '../Components/FilterBar';
 
 class PostsContainer extends React.Component {
    state = {
       posts: [], 
-      displayPostForm: false
+      displayPostForm: false, 
+      filterTerm: ""
    }
 
    componentDidMount() {
@@ -30,16 +32,33 @@ class PostsContainer extends React.Component {
       })
    }
 
+   handleChange = (event) => {
+      this.setState({
+         filterTerm: event.target.value
+      })
+   }
+
+   filterPosts = () => {
+      // console.log(this.state.posts.map(post => post.disorders.map(disorder => disorder.name)))
+      let displayPosts = this.state.posts
+      if (this.state.filterTerm !== "") {
+         displayPosts = displayPosts.filter(post => post.disorders.map(disorder => disorder.name).toLowerCase().includes(this.state.filterTerm.toLowerCase()))
+      }
+      return displayPosts
+   }
+
    render() {
       return (
          <div>
             <h1>Virago Community Posts</h1>
             <br></br>
+            <FilterBar filterTerm={this.state.filterTerm} handleChange={this.handleChange} />
+            <br></br>
             <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayPostForm}>{this.state.displayPostForm ? "Hide Create Post Form" : "Display Create Post Form"}</Button>
             {this.state.displayPostForm &&
                <PostForm handleNewPost={this.handleNewPost} />}
             <br></br>
-            {this.state.posts.map(post => 
+            {this.filterPosts().map(post => 
                <PostCard key={post.id} post={post} />
             )}
          </div>
