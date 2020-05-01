@@ -37,12 +37,22 @@
 }
 
 #post-card {
-        margin: 0 auto; 
-        float: none; 
-        margin-bottom: 10px; 
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
 }
 
 #post-img {
     height: 350px;
     width: auto;
 }
+
+.disorder-page {
+    padding: 10px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    align-content: center;
+    margin-bottom: 10px; 
+}
+

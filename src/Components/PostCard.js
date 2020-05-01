@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import CommentForm from '../Components/CommentForm'
 import CommentCard from './CommentCard';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class PostCard extends React.Component {
    state = {
@@ -55,7 +56,7 @@ class PostCard extends React.Component {
       // console.log(this.state.tags)
       return (
          <div id="post-card-container">
-            <Card id="post-card" key={this.props.post.id} style={{ width: '50rem' }}>
+            <Card id="post-card" key={this.props.post.id} border="primary" style={{ width: '50rem' }}>
                <Card.Header as="h5">{this.props.post.title}</Card.Header>
             <Card.Body>
                <Card.Img id="post-img" src={this.props.post.image_url} alt={this.props.post.title} />
@@ -64,7 +65,6 @@ class PostCard extends React.Component {
                   <Card.Text>
                      {this.props.post.content}
                   </Card.Text>
-                  <Card.Text>Tags: {this.state.tags.map(tag => <li>#{tag.name}</li>)} </Card.Text>
                   {this.state.displayComments && (
                      <div id="comment-list">
                         {this.state.comments && this.state.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)}
@@ -78,6 +78,15 @@ class PostCard extends React.Component {
                   <div id="comment-form">
                      {this.state.displayCommentForm && <CommentForm postId={this.props.post.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
                   </div>
+                  <br></br>
+                  <br></br>
+                  <Card.Text class="text-muted">
+                     <Container fluid="sm">
+                        <Row>
+                           Tags: {this.state.tags.map(tag => <ul>#{tag.name}</ul>)}
+                        </Row>
+                     </Container>
+                  </Card.Text>
                </Card.Body>
                <Card.Footer>Posted by: {this.props.post.user.username}</Card.Footer>
             </Card>
