@@ -1,5 +1,6 @@
 import React from 'react';
 import { API_BASE } from '../constants'; 
+import { Card } from 'react-bootstrap'; 
 
 class DisorderPage extends React.Component {
    state = {
@@ -18,16 +19,21 @@ class DisorderPage extends React.Component {
    
    renderDisorderDetails = (selectedDisorder) => {
       return (
-         <div id="disorder-page">
-            <h1>{this.state.disorder.name}</h1>
-            <p>{this.state.disorder.details}</p>
-            <ul><strong>Common symptoms may include:</strong></ul>
-            {this.state.disorder.symptoms.map(symptom => <li key={symptom.id}><strong>{symptom.name}:</strong> {symptom.description}</li>)}
-            <br></br>
-            <p><strong>Effective treatment plans are unique to an individual and should always be
-            developed in collaboration with a mental health specialist. Below is a list of
-            treatments commonly used to treat this disorder:</strong></p>
-            {this.state.disorder.treatments.map(treatment => (<li key={treatment.id}><strong>{treatment.name}:</strong> {treatment.description}</li>))}
+         <div className="disorder-page">
+            <Card className="disorder-page" style={{ width: '60rem' }} border="info" key={this.state.disorder.id}>
+               <Card.Header><h3>{this.state.disorder.name}</h3></Card.Header>
+               <Card.Body>
+                  <Card.Text><p>{this.state.disorder.details}</p></Card.Text>
+               </Card.Body>
+               <Card.Header><strong>Common Symptoms</strong></Card.Header>
+               <Card.Body>{this.state.disorder.symptoms.map(symptom => <li key={symptom.id}><strong>{symptom.name}:</strong> {symptom.description}</li>)}</Card.Body>
+               <Card.Header><strong>Treatments</strong></Card.Header>
+               <br></br>
+               <Card.Subtitle class="text-secondary"><em>Effective treatment plans are unique to an individual and should always be
+               developed in collaboration with a mental health specialist. Below is a list of
+               treatments commonly used to treat this disorder:</em></Card.Subtitle>
+               <Card.Body>{this.state.disorder.treatments.map(treatment => (<li key={treatment.id}><strong>{treatment.name}:</strong> {treatment.description}</li>))}</Card.Body>            
+            </Card>
          </div>
       ) 
    }
