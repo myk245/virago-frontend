@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import CommentForm from '../Components/CommentForm'
 import CommentCard from './CommentCard';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 
 class PostCard extends React.Component {
    state = {
@@ -65,16 +65,18 @@ class PostCard extends React.Component {
                   <Card.Text>
                      {this.props.post.content}
                   </Card.Text>
-                  {this.state.displayComments && (
-                     <div id="comment-list">
-                        {this.state.comments && this.state.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)}
-                     </div>
-                  )}
                   <div id="button-container">
                      <Button type="button" size="sm" variant="outline-info" onClick={this.increaseLikes}>{this.state.likes} <span role="img" aria-label="yellow-heart">💛</span></Button>{' '}
                      <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayCommentForm}>{this.state.displayCommentForm ? "Hide Comment Form" : "Add a Comment"}</Button>{' '}
                      <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayComments}>{this.state.displayComments ? "Hide Comments" : "View Comments"}</Button>
                   </div>
+                  <br></br>
+                  {this.state.displayComments && (
+                     <ListGroup id="comment-list"> <strong>Comments</strong>
+                        {this.state.comments && this.state.comments.map(comment => <CommentCard key={comment.id} comment={comment} />)}
+                     </ListGroup>
+                  )}
+                  <br></br>
                   <div id="comment-form">
                      {this.state.displayCommentForm && <CommentForm postId={this.props.post.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
                   </div>

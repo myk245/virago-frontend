@@ -21,7 +21,7 @@ const NavBar = () => {
                      {/* <Link to="/disorders">Mental Health Disorders</Link>
                      <Link to="/posts">Virago Community Posts</Link> */}
                      <NavDropdown.Item href="/disorders">Mental Health Disorders</NavDropdown.Item>
-                     <NavDropdown.Item href="/posts">View All Posts</NavDropdown.Item>
+                     <NavDropdown.Item href="/posts">Virago Community Posts</NavDropdown.Item>
                      <NavDropdown.Divider />
                      <NavDropdown.Item href="/"><strong>Home</strong></NavDropdown.Item>
                   </NavDropdown>

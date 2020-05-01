@@ -43,9 +43,10 @@ class PostForm extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className="center-container">
+            <br></br>
             <h4>Create a Post:</h4>
-            <Form>
+            <Form className="center-container" style={{ width: '50rem' }}>
                <Form.Group>
                   <Form.Label>Title: </Form.Label>
                   <Form.Control type="text" name="title" value={this.state.title} placeholder="Give your post a title!" onChange={this.handleChange} />
