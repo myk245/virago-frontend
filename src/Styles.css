@@ -1,5 +1,5 @@
 #jumbotron {
-   background-color: rgba(244, 245, 139, 0.639);
+   background-color: rgba(250, 224, 25, 0.612);
 }
 
 .card-img-top {
@@ -47,7 +47,7 @@
     width: auto;
 }
 
-.disorder-page {
+.center-container {
     padding: 10px; 
     display: block;
     margin-left: auto;

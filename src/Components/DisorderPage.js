@@ -19,8 +19,8 @@ class DisorderPage extends React.Component {
    
    renderDisorderDetails = (selectedDisorder) => {
       return (
-         <div className="disorder-page">
-            <Card className="disorder-page" style={{ width: '60rem' }} border="info" key={this.state.disorder.id}>
+         <div className="center-container">
+            <Card className="center-container" style={{ width: '60rem' }} border="info" key={this.state.disorder.id}>
                <Card.Header><h3>{this.state.disorder.name}</h3></Card.Header>
                <Card.Body>
                   <Card.Text><p>{this.state.disorder.details}</p></Card.Text>
