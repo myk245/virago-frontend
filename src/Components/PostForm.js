@@ -1,25 +1,27 @@
 import React from 'react'; 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
-import { API_BASE } from '../constants';
+import { API_BASE } from '../constants'; 
+// import { Dropdown } from 'semantic-ui-react'; 
 
 const initialState = {
    title: "",
    content: "",
    image_url: "",
-   likes: 0
+   likes: 0, 
+   tags: [] //each tag is comprised of a disorder_id and post_id
 }
 
-// const options = [
-//    "Anxiety Disorders", 
-//    "Clinical Depression", 
-//    "Disassociative Disorder", 
-//    "Bipolar Disorder", 
-//    "Obsessive-Compulsive Disorder", 
-//    "Borderline Personality Disorder", 
-//    "Post-Traumatic Stress Disorder", 
-//    "Schizophrenia"
-// ]
+const tagOptions = [
+   { key: 1, text: "Anxiety Disorders", value: "Anxiety Disorders" }, // id:1
+   { key: 2, text: "Clinical Depression", value: "Clinical Depression" }, // id:2
+   { key: 3, text: "Disassociative Disorder", value: "Disassociative Disorder" },// id:3
+   { key: 4, text: "Bipolar Disorder", value: "Bipolar Disorder" },// id:4
+   { key: 5, text: "Obsessive-Compulsive Disorder", value: "Obsessive-Compulsive Disorder" },// id:5 
+   { key: 6, text: "Borderline Personality Disorder", value: "Borderline Personality Disorder" },// id:6
+   { key: 7, text: "Post-Traumatic Stress Disorder", value: "Post-Traumatic Stress Disorder" },// id:7
+   { key: 8, text: "Schizophrenia", value: "Schizophrenia" }// id:8
+]
 
 class PostForm extends React.Component {
    state = initialState
