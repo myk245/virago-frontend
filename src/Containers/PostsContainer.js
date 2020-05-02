@@ -37,14 +37,18 @@ class PostsContainer extends React.Component {
          filterTerm: event.target.value
       })
    }
-
+   
    filterPosts = () => {
-      // console.log(this.state.posts.map(post => post.disorders.map(disorder => disorder.name)))
-      let displayPosts = this.state.posts
-      if (this.state.filterTerm !== "") {
-         displayPosts = displayPosts.filter(post => post.disorders.map(disorder => disorder.name).toLowerCase().includes(this.state.filterTerm.toLowerCase()))
-      }
-      return displayPosts
+      let postsToRender = []
+      // map over all the posts (which returns another array) and for each, filter to find the ones where 
+      // the tagged disorder includes the filter term => if it matches, add it to the array of posts to render
+      let postMatch = this.state.posts.map((post) => {
+         let tagMatch = post.disorders.filter(disorder => disorder.name.includes(this.state.filterTerm))
+            if (tagMatch.length > 0) {
+            postsToRender.push(post)
+            }
+      })
+   return postsToRender
    }
 
    render() {
