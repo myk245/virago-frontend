@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'; 
 import CommentForm from '../Components/CommentForm'
 import CommentCard from './CommentCard';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import { Container, Row, ListGroup } from 'react-bootstrap';
 
 class PostCard extends React.Component {
    state = {
@@ -82,10 +82,10 @@ class PostCard extends React.Component {
                   </div>
                   <br></br>
                   <br></br>
-                  <Card.Text class="text-muted">
+                  <Card.Text className="text-muted">
                      <Container fluid="sm">
                         <Row>
-                           Tags: {this.state.tags.map(tag => <ul>#{tag.name}</ul>)}
+                           Tags: {this.state.tags.map((tag, index) => <ul key={index}>#{tag.name}</ul>)}
                         </Row>
                      </Container>
                   </Card.Text>

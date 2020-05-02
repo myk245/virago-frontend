@@ -23,7 +23,7 @@ class DisorderPage extends React.Component {
             <Card className="center-container" style={{ width: '60rem' }} border="info" key={this.state.disorder.id}>
                <Card.Header><h3>{this.state.disorder.name}</h3></Card.Header>
                <Card.Body>
-                  <Card.Text><p>{this.state.disorder.details}</p></Card.Text>
+                  <Card.Text><div>{this.state.disorder.details}</div></Card.Text>
                </Card.Body>
                <Card.Header><strong>Common Symptoms</strong></Card.Header>
                <Card.Body>{this.state.disorder.symptoms.map(symptom => <li key={symptom.id}><strong>{symptom.name}:</strong> {symptom.description}</li>)}</Card.Body>

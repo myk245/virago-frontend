@@ -1,7 +1,7 @@
 import React from 'react'; 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
-import {API_BASE} from '../constants'
+import { API_BASE } from '../constants';
 
 const initialState = {
    title: "",
@@ -9,6 +9,17 @@ const initialState = {
    image_url: "",
    likes: 0
 }
+
+// const options = [
+//    "Anxiety Disorders", 
+//    "Clinical Depression", 
+//    "Disassociative Disorder", 
+//    "Bipolar Disorder", 
+//    "Obsessive-Compulsive Disorder", 
+//    "Borderline Personality Disorder", 
+//    "Post-Traumatic Stress Disorder", 
+//    "Schizophrenia"
+// ]
 
 class PostForm extends React.Component {
    state = initialState
