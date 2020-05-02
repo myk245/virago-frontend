@@ -7,7 +7,6 @@ const FilterBar = (props) => {
          <Form>
             <FormLabel>Search Posts by Disorder:</FormLabel>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" value={props.filterTerm} onChange={props.handleChange} />
-            <Button size="sm" variant="outline-info">Search</Button>
          </Form> 
       </div>
    );
