@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
 import { API_BASE } from '../constants'; 
-// import { Dropdown } from 'semantic-ui-react'; 
+
 
 const initialState = {
    title: "",
@@ -12,17 +12,6 @@ const initialState = {
    tags: [] //each tag is comprised of a disorder_id and post_id
 }
 
-const tagOptions = [
-   { key: 1, text: "Anxiety Disorders", value: "Anxiety Disorders" }, // id:1
-   { key: 2, text: "Clinical Depression", value: "Clinical Depression" }, // id:2
-   { key: 3, text: "Disassociative Disorder", value: "Disassociative Disorder" },// id:3
-   { key: 4, text: "Bipolar Disorder", value: "Bipolar Disorder" },// id:4
-   { key: 5, text: "Obsessive-Compulsive Disorder", value: "Obsessive-Compulsive Disorder" },// id:5 
-   { key: 6, text: "Borderline Personality Disorder", value: "Borderline Personality Disorder" },// id:6
-   { key: 7, text: "Post-Traumatic Stress Disorder", value: "Post-Traumatic Stress Disorder" },// id:7
-   { key: 8, text: "Schizophrenia", value: "Schizophrenia" }// id:8
-]
-
 class PostForm extends React.Component {
    state = initialState
 
@@ -30,6 +19,18 @@ class PostForm extends React.Component {
       this.setState({
          [event.target.name]: event.target.value
       })
+   }
+
+   handleSelect = (event) => {
+      console.log(event.target.options) // has a selected property that returns a boolean
+      var options = event.target.options;
+      var tags = [];
+      for (var i = 0, l = options.length; i < l; i++) {
+         if (options[i].selected) {
+            tags.push(options[i].value);
+         }
+      }
+      this.setState({ tags: tags });
    }
 
    handleSubmit = (event) => {
@@ -55,6 +56,7 @@ class PostForm extends React.Component {
    }
 
    render() {
+      console.log(this.state.tags)
       return (
          <div className="center-container">
             <br></br>
@@ -72,6 +74,21 @@ class PostForm extends React.Component {
                   <Form.Label>Image: </Form.Label>
                   <Form.Control type="text" name="image_url" value={this.state.image_url} placeholder="Image URL here" onChange={this.handleChange} />
                </Form.Group>
+               <Form>
+                  <Form.Group controlId="exampleForm.SelectCustom">
+                     <Form.Label>Tag Your Post (press and hold the cmd button while selecting to select multiple tags):</Form.Label>
+                     <Form.Control as="select" multiple={true} custom name="tags" onChange={this.handleSelect}>
+                        <option value="1">Anxiety Disorders</option>
+                        <option value="2">Clinical Depression</option>
+                        <option value="3">Disassociative Disorder</option>
+                        <option value="4">Bipolar Disorder</option>
+                        <option value="5">Obsessive-Compulsive Disorder</option>
+                        <option value="6">Borderline Personality Disorder</option>
+                        <option value="7">Post-Traumatic Stress Disorder</option>
+                        <option value="8">Schizophrenia</option>
+                     </Form.Control>
+                  </Form.Group>
+               </Form>
                <Button variant="outline-info" size="sm" type="submit" onClick={this.handleSubmit}>Submit Post</Button>
             </Form>
          </div>
