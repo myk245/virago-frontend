@@ -58,11 +58,7 @@ class PostForm extends React.Component {
          },
          // randomly generating user id for now until we figure out how to log in
          body: JSON.stringify({
-            title: this.state.title,
-            content: this.state.content,
-            image_url: this.state.image_url,
-            likes: 0,
-            disorders: this.state.disorders,
+            ...this.state,
             user_id: Math.floor(Math.random() * 5) + 1,
          })
       })
@@ -74,7 +70,7 @@ class PostForm extends React.Component {
    }
 
    render() {
-      console.log(this.props.disorders)
+      // console.log(this.state.disorders)
       return (
          <div className="center-container">
             <br></br>
