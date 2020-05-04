@@ -60,7 +60,8 @@ class PostForm extends React.Component {
          .then(newPost => {
             this.props.handleNewPost(newPost)
          })
-      .then(this.setState(initialState))
+         .then(this.setState(initialState))
+      .then(this.props.toggleDisplayPostForm)
    }
 
    render() {
