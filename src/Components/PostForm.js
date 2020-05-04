@@ -10,7 +10,7 @@ const initialState = {
    content: "",
    image_url: "",
    likes: 0, 
-   disorders: []
+   disorder_ids: []
 }
 
 class PostForm extends React.Component {
@@ -26,23 +26,17 @@ class PostForm extends React.Component {
       // console.log(event.target.options) // has a property "selected" that returns a boolean
       // console.log(this.state.disorders)
       let options = event.target.options;
-      let disorders = [];
+      let disorder_ids = [];
       for (let i = 0, l = options.length; i < l; i++) { 
          // debugger 
          // console.log(options[i].name)
          // console.log(JSON.parse(options[i].value).name)
          if (options[i].selected) {
-            disorders.push(JSON.parse(options[i].value))
-            disorders = disorders.map(disorder => ({
-               id: disorder.id, 
-               name: disorder.name,
-               details: disorder.details, 
-               created_at: disorder.created_at
-            }))
+            disorder_ids.push(parseInt(options[i].value))
          }
       }
       this.setState({
-         disorders: disorders
+         disorder_ids: disorder_ids
       }
       )
    }
@@ -91,9 +85,9 @@ class PostForm extends React.Component {
                <Form>
                   <Form.Group controlId="exampleForm.SelectCustom">
                      <Form.Label>Tag Your Post (press and hold the cmd button while selecting to select multiple tags):</Form.Label>
-                     <Form.Control as="select" multiple={true} custom name="disorders" onChange={this.handleSelect}>
+                     <Form.Control as="select" multiple={true} custom name="disorder_ids" onChange={this.handleSelect}>
                         {this.props.disorders.map(disorder =>
-                           <option key={disorder.id} value={JSON.stringify(disorder)}>{disorder.name}</option>
+                           <option key={disorder.id} value={disorder.id}>{disorder.name}</option>
                         )}
                      </Form.Control>
                   </Form.Group>
