@@ -60,7 +60,7 @@ class PostsContainer extends React.Component {
             <br></br>
             <Button variant="outline-primary" size="sm" onClick={this.toggleDisplayPostForm}>{this.state.displayPostForm ? "Hide Create Post Form" : "Display Create Post Form"}</Button>
             {this.state.displayPostForm &&
-               <PostForm handleNewPost={this.handleNewPost} disorders={this.props.disorders} />}
+               <PostForm handleNewPost={this.handleNewPost} disorders={this.props.disorders} toggleDisplayPostForm={this.toggleDisplayPostForm} />}
             <br></br>
             {this.filterPosts().map(post => 
                <PostCard key={post.id} post={post} />
