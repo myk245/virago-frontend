@@ -36,7 +36,7 @@ class App extends React.Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
             <Route path='/disorders' render={routerProps => <DisordersContainer {...routerProps} disorders={this.state.disorders} />} />
-            <Route path='/posts' component={PostsContainer} />
+          <Route path='/posts' render={routerProps => <PostsContainer {...routerProps} disorders={this.state.disorders} />} />
           </Switch>
         </div>
     );

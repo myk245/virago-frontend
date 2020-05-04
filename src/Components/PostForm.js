@@ -3,13 +3,14 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'; 
 import { API_BASE } from '../constants'; 
 
-
+// each tag is comprised of a disorder_id and post_id
+// right now what we have in the disorders array is the id of the disorder
 const initialState = {
    title: "",
    content: "",
    image_url: "",
    likes: 0, 
-   tags: [] //each tag is comprised of a disorder_id and post_id
+   disorders: []
 }
 
 class PostForm extends React.Component {
@@ -22,15 +23,28 @@ class PostForm extends React.Component {
    }
 
    handleSelect = (event) => {
-      console.log(event.target.options) // has a selected property that returns a boolean
-      var options = event.target.options;
-      var tags = [];
-      for (var i = 0, l = options.length; i < l; i++) {
+      // console.log(event.target.options) // has a property "selected" that returns a boolean
+      // console.log(this.state.disorders)
+      let options = event.target.options;
+      let disorders = [];
+      for (let i = 0, l = options.length; i < l; i++) { 
+         // debugger 
+         // console.log(options[i].name)
+         // console.log(JSON.parse(options[i].value).name)
          if (options[i].selected) {
-            tags.push(options[i].value);
+            disorders.push(JSON.parse(options[i].value))
+            disorders = disorders.map(disorder => ({
+               id: disorder.id, 
+               name: disorder.name,
+               details: disorder.details, 
+               created_at: disorder.created_at
+            }))
          }
       }
-      this.setState({ tags: tags });
+      this.setState({
+         disorders: disorders
+      }
+      )
    }
 
    handleSubmit = (event) => {
@@ -44,7 +58,11 @@ class PostForm extends React.Component {
          },
          // randomly generating user id for now until we figure out how to log in
          body: JSON.stringify({
-            ...this.state,
+            title: this.state.title,
+            content: this.state.content,
+            image_url: this.state.image_url,
+            likes: 0,
+            disorders: this.state.disorders,
             user_id: Math.floor(Math.random() * 5) + 1,
          })
       })
@@ -56,7 +74,7 @@ class PostForm extends React.Component {
    }
 
    render() {
-      console.log(this.state.tags)
+      console.log(this.props.disorders)
       return (
          <div className="center-container">
             <br></br>
@@ -77,15 +95,10 @@ class PostForm extends React.Component {
                <Form>
                   <Form.Group controlId="exampleForm.SelectCustom">
                      <Form.Label>Tag Your Post (press and hold the cmd button while selecting to select multiple tags):</Form.Label>
-                     <Form.Control as="select" multiple={true} custom name="tags" onChange={this.handleSelect}>
-                        <option value="1">Anxiety Disorders</option>
-                        <option value="2">Clinical Depression</option>
-                        <option value="3">Disassociative Disorder</option>
-                        <option value="4">Bipolar Disorder</option>
-                        <option value="5">Obsessive-Compulsive Disorder</option>
-                        <option value="6">Borderline Personality Disorder</option>
-                        <option value="7">Post-Traumatic Stress Disorder</option>
-                        <option value="8">Schizophrenia</option>
+                     <Form.Control as="select" multiple={true} custom name="disorders" onChange={this.handleSelect}>
+                        {this.props.disorders.map(disorder =>
+                           <option key={disorder.id} value={JSON.stringify(disorder)}>{disorder.name}</option>
+                        )}
                      </Form.Control>
                   </Form.Group>
                </Form>
