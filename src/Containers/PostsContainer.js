@@ -4,6 +4,7 @@ import PostCard from '../Components/PostCard';
 import PostForm from '../Components/PostForm'; 
 import Button from 'react-bootstrap/Button';
 import FilterBar from '../Components/FilterBar';
+import Help from '../Components/Help'; 
 
 class PostsContainer extends React.Component {
    state = {
@@ -65,6 +66,7 @@ class PostsContainer extends React.Component {
             {this.filterPosts().map(post => 
                <PostCard key={post.id} post={post} />
             )}
+            <Help />
          </div>
       )
    }

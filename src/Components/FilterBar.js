@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormControl, Button, FormLabel, Col, Row } from 'react-bootstrap'; 
+import { Form, FormControl, FormLabel} from 'react-bootstrap'; 
 
 const FilterBar = (props) => {
    return (

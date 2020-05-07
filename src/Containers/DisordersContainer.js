@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'; 
 import DisorderCard from '../Components/DisorderCard'; 
 import DisorderPage from '../Components/DisorderPage';
+import Help from '../Components/Help';
 
 class DisordersContainer extends React.Component {   
    state = {
@@ -65,6 +66,7 @@ class DisordersContainer extends React.Component {
                      <DisorderCard key={disorder.id} disorder={disorder} handleSelect={this.selectDisorder} />)
                } */}
             </div>
+            <Help />
          </div>
       )
    }

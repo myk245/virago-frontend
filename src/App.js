@@ -9,6 +9,7 @@ import LogIn from './Components/LogIn';
 import NavBar from './Components/NavBar';
 import DisordersContainer from './Containers/DisordersContainer';
 import PostsContainer from './Containers/PostsContainer';
+import Resources from './Components/Resources'; 
 import { API_BASE } from './constants';
 
 class App extends React.Component {
@@ -36,8 +37,9 @@ class App extends React.Component {
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={LogIn} />
             <Route path='/disorders' render={routerProps => <DisordersContainer {...routerProps} disorders={this.state.disorders} />} />
-          <Route path='/posts' render={routerProps => <PostsContainer {...routerProps} disorders={this.state.disorders} />} />
-          </Switch>
+            <Route path='/posts' render={routerProps => <PostsContainer {...routerProps} disorders={this.state.disorders} />} />
+            <Route path='/resources' component={Resources} /> 
+        </Switch>
         </div>
     );
   }

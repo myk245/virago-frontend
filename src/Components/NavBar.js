@@ -11,7 +11,7 @@ const NavBar = () => {
    return (
       <Container>
          <Navbar expand="lg" variant="light" bg="light">
-            <Navbar.Brand href="/">Virago</Navbar.Brand>
+            <Navbar.Brand href="/"><strong>V I R A G O</strong></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="mr-auto">
@@ -22,6 +22,7 @@ const NavBar = () => {
                      <Link to="/posts">Virago Community Posts</Link> */}
                      <NavDropdown.Item href="/disorders">Mental Health Disorders</NavDropdown.Item>
                      <NavDropdown.Item href="/posts">Virago Community Posts</NavDropdown.Item>
+                     <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
                      <NavDropdown.Divider />
                      <NavDropdown.Item href="/"><strong>Home</strong></NavDropdown.Item>
                   </NavDropdown>
