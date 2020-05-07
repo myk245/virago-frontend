@@ -2,6 +2,7 @@ import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import { Card, CardGroup } from 'react-bootstrap'; 
+import Help from './Help'; 
 
 class Home extends React.Component {
    render() {
@@ -11,7 +12,7 @@ class Home extends React.Component {
          <Jumbotron id="jumbotron">
             <h1 class="text-primary">Hello, friend! Welcome to Virago.</h1>
             <br></br>
-            <p class="text-muted">Virago is a centralized resource and community support group for mental health care. Explore general mental health wellness tips, get further information on specific disorders, and interact with a community of compassionate people who understand what you're going through. 
+            <p class="text-dark">Virago is a centralized resource and community support group for mental health care. Explore general mental health wellness tips, get further information on specific disorders, and interact with a community of compassionate people who understand what you're going through. 
             </p>
             <p><em>No matter what you're going through, you're not alone.</em></p>
             <p>
@@ -52,10 +53,11 @@ class Home extends React.Component {
                      <Card.Title>Mental Health Month</Card.Title>
                      <Card.Text>
                         This Mental Health Month, let's end the stigma around mental health. By fostering honest and open conversations about mental health, we free ourselves of the shame and loneliness so many people affected by mental illneses feel. 
-      </Card.Text>
+                     </Card.Text>
                   </Card.Body>
                </Card>
             </CardGroup>
+            <Help />
          </div>
       )
    }
