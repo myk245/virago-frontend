@@ -9,7 +9,7 @@ class DisordersContainer extends React.Component {
       hideHeader: false 
    }
 
-   // we need a way to conditionally render the general info - needs to show on index page and be hidden on show page
+   // conditionally render general info - needs to show on index page and be hidden on show page
    // when Details button has been clicked, toggle hideHeader on so that it is hidden
    toggleHideHeader = () => {
       this.setState({
