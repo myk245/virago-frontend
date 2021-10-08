@@ -43,10 +43,6 @@ class CommentForm extends React.Component {
       return (
          <div>
             <Form>
-               {/* <Form.Group>
-                  <Form.Label>Your Username: </Form.Label>
-                  <Form.Control type="text" placeholder="Enter your username here" />
-               </Form.Group> */}
                <Form.Group>
                   <Form.Label>Comment: </Form.Label>
                   <Form.Control type="text" onChange={this.handleChange} name="content" value={this.state.content} placeholder="Your comment here"/>

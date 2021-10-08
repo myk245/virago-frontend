@@ -53,7 +53,6 @@ class PostCard extends React.Component {
    }
 
    render() {
-      // console.log(this.state.tags)
       return (
          <div id="post-card-container">
             <Card id="post-card" key={this.props.post.id} border="primary" style={{ width: '50rem' }}>

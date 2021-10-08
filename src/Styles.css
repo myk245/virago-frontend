@@ -1,5 +1,5 @@
 #jumbotron {
-   background-color: rgb(147, 165, 255); 
+    background-color: rgb(147, 165, 255); 
 }
 
 .card-img-top {
@@ -9,22 +9,22 @@
 }
 
 #disorder-card {
-   padding: 5px 5px 5px 5px; 
-   display: block;
-   box-shadow: 5px 5px 5px 5px rgb(246, 195, 195), 
-   -9px 5px 15px 5px rgb(245, 229, 176), 
-   -7px -5px 15px 5px rgb(161, 248, 204), 
-   12px -5px 15px 5px #80C7FF, 
-   12px 10px 15px 7px rgb(224, 170, 211), 
-   -10px 10px 15px 7px rgb(212, 87, 95), 
-   -10px -7px 27px 1px rgb(161, 135, 219), 
-   -50px -2px 17px -1px rgb(206, 148, 122);
-   border-radius: 5px 5px 5px 5px;
-   width: 95%;
-   align-self: center;
-   margin: 0 auto; 
-   float: none; 
-   margin-bottom: 25px; 
+    padding: 5px 5px 5px 5px; 
+    display: block;
+    box-shadow: 5px 5px 5px 5px rgb(246, 195, 195), 
+    -9px 5px 15px 5px rgb(245, 229, 176), 
+    -7px -5px 15px 5px rgb(161, 248, 204), 
+    12px -5px 15px 5px #80C7FF, 
+    12px 10px 15px 7px rgb(224, 170, 211), 
+    -10px 10px 15px 7px rgb(212, 87, 95), 
+    -10px -7px 27px 1px rgb(161, 135, 219), 
+    -50px -2px 17px -1px rgb(206, 148, 122);
+    border-radius: 5px 5px 5px 5px;
+    width: 95%;
+    align-self: center;
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 25px; 
 }
 
 #post-card-container {

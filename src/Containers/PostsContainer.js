@@ -72,3 +72,4 @@ class PostsContainer extends React.Component {
    }
 }
 export default PostsContainer; 
+

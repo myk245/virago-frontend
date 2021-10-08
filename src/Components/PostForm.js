@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import { API_BASE } from '../constants'; 
 
 // each tag is comprised of a disorder_id and post_id
-// right now what we have in the disorders array is the id of the disorder
 const initialState = {
    title: "",
    content: "",
@@ -23,14 +22,9 @@ class PostForm extends React.Component {
    }
 
    handleSelect = (event) => {
-      // console.log(event.target.options) // has a property "selected" that returns a boolean
-      // console.log(this.state.disorders)
       let options = event.target.options;
       let disorder_ids = [];
       for (let i = 0, l = options.length; i < l; i++) { 
-         // debugger 
-         // console.log(options[i].name)
-         // console.log(JSON.parse(options[i].value).name)
          if (options[i].selected) {
             disorder_ids.push(parseInt(options[i].value))
          }
@@ -50,7 +44,7 @@ class PostForm extends React.Component {
             'Content-Type': 'application/json',
             Accept: 'application/json'
          },
-         // randomly generating user id for now until we figure out how to log in
+         // randomly generating user id for now until we implement auth
          body: JSON.stringify({
             ...this.state,
             user_id: Math.floor(Math.random() * 5) + 1,
@@ -65,7 +59,6 @@ class PostForm extends React.Component {
    }
 
    render() {
-      // console.log(this.state.disorders)
       return (
          <div className="center-container">
             <br></br>

@@ -17,20 +17,9 @@ class DisordersContainer extends React.Component {
       })
    }
 
-   // transitioning to useHistory hook, so the below method is now unnecessary
-   // selectDisorder = (id) => {
-   //    this.setState({
-   //       selectedDisorder: id
-   //    })
-   // }
-
    render() {
-      // console.log(this.state.hideHeader)
-      // let selectedDisorder = this.props.disorders.find(disorder => disorder.id === this.state.selectedDisorder)
       return (
          <div id="disorders">
-            {/* if hideHeader === true, don't render general disorder info
-            if hideHeader === false, render general disorder info */}
             {this.state.hideHeader ? null : 
                <div id="general-disorder-info">
                   <h1>Mental Health Disorders</h1>
@@ -43,10 +32,7 @@ class DisordersContainer extends React.Component {
             <br>
             </br>
             <div id="disorder-list">
-               {/* depending on the URL the user is on, render the show page or the index page */}
                <Switch>
-                  {/* since we use component notation here, routerProps is automatically added to DisorderPage  */}
-                  {/* <Route path='/disorders/:id' component={DisorderPage} />  */}
                   <Route path='/disorders/:id' 
                      render={(routerProps) => <DisorderPage {...routerProps} />}
                      />
@@ -60,11 +46,6 @@ class DisordersContainer extends React.Component {
                      )}
                   />
                </Switch>
-               {/* {this.state.selectedDisorder
-                  ? <DisorderPage {...selectedDisorder} />
-                  : this.props.disorders.map(disorder =>
-                     <DisorderCard key={disorder.id} disorder={disorder} handleSelect={this.selectDisorder} />)
-               } */}
             </div>
             <Help />
          </div>
